@@ -1,9 +1,17 @@
-import { title } from "@/components/primitives";
+import React from "react"
+import StartNow from "@/components/startNow";
+import Bgvedio from "@/components/bgvedio";
+import {ImageInterval} from "@/components/imageInterval";
+
+
 
 export default function BlogPage() {
   return (
-    <div>
-      <h1 className={title()}>Blog</h1>
-    </div>
+      <div className="container">
+          <Bgvedio/>
+          <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+             welcome again
+      </div>
+      </div>
   );
 }
