@@ -7,11 +7,17 @@ import {ImageInterval} from "@/components/imageInterval";
 
 export default function BlogPage() {
   return (
-      <div className="container">
-          <Bgvedio/>
-          <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-             welcome again
+      <div>
+          <div className="bg-amber-400 w-[200vh] h-[90vh]">
+              <Bgvedio/>
+          </div>
+          <div className="bg-amber-50 text-black w-[200vh] h-[60vh]">
+              <ImageInterval/>
+          </div>
+          <div className="bg-amber-800 text-black w-[200vh] h-[60vh]">
+              to day
+          </div>
       </div>
-      </div>
+
   );
 }

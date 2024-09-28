@@ -4,27 +4,32 @@ import {button} from "@/components/primitives";
 import {Button} from "@nextui-org/button";
 export default function Bgvedio() {
     return (
-        <div className=" relative top-12  left-0 w-full h-[80vh] ">
+        <div className=" relative w-full h-full ">
             <video
                 autoPlay
                 loop
                 muted
-                className="absolute inset-0 w-full h-full object-cover"
+                className="relative inset-0 w-full h-full object-cover z-1"
             >
                 <source src="/vedio2.mp4" type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             {/* contenue au dessus  de vedio */}
 
-            <div className="absolute z-10 flex items-center justify-center h-full left-5">
+            <div className="absolute top-4 z-10 flex items-center justify-center h-full left-5">
                 <div className="bg-black bg-opacity-75 p-8 rounded-lg">
                     <p className="flex flex-col  text-3xl font-bold text-black-900">
                         <span className={title()}> Make your Body  </span>
                         <span className={title()}> your greatest masterpiece.</span>
                     </p>
-                        <Button className={button({color:"yellow" , size:"md"})}>
+                    <p className="flex flex-col  text-3xl font-bold text-black-900">
+                        <span className={title()}> chose your </span>
+                        <Button className={button({color: "yellow", size: "md"})}>
                             Work out now
                         </Button>
+                        <span className={title({color:"pink"})}> Now </span>
+                        <span className={title({color:"violet"})}> Now </span>
+                    </p>
 
                 </div>
             </div>
