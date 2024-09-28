@@ -12,10 +12,10 @@ export default function BlogPage() {
               <Bgvedio/>
           </div>
           <div className="bg-amber-50 text-black w-[200vh] h-[60vh]">
-              <ImageInterval/>
+              something else
           </div>
           <div className="bg-amber-800 text-black w-[200vh] h-[60vh]">
-              to day
+              <ImageInterval/>
           </div>
       </div>
 
