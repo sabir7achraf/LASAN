@@ -2,6 +2,7 @@ import React from "react";
 import {title} from "@/components/primitives";
 import {button} from "@/components/primitives";
 import {Button} from "@nextui-org/button";
+import {Tooltip} from "@nextui-org/tooltip";
 export default function Bgvedio() {
     return (
         <div className=" relative w-full h-full ">
@@ -24,11 +25,13 @@ export default function Bgvedio() {
                     </p>
                     <p className="flex flex-col  text-3xl font-bold text-black-900">
                         <span className={title()}> chose your </span>
-                        <Button className={button({color: "yellow", size: "md"})}>
-                            Work out now
-                        </Button>
-                        <span className={title({color:"pink"})}> Now </span>
-                        <span className={title({color:"violet"})}> Now </span>
+                        <Tooltip className={title({color:'yellow',size:"sm"})}
+                                 content="register Now"
+                                 placement="bottom">
+                            <Button className={button({color: "yellow", size: "md"})}>
+                                Work out now
+                            </Button>
+                        </Tooltip>
                     </p>
 
                 </div>
