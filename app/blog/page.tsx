@@ -14,7 +14,7 @@ export default function BlogPage() {
           <div className="bg-amber-50 text-black w-[200vh] h-[60vh]">
               something else
           </div>
-          <div className="text-black w-[200vh] h-[80vh]">
+          <div className="text-black w-[200vh] h-[80vh] bg-blue-400">
               <ImageInterval/>
           </div>
       </div>
