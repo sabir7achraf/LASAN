@@ -6,35 +6,41 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.management.relation.Role;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table
 @Getter@Setter@AllArgsConstructor @NoArgsConstructor
-public class Athlete implements UserDetails {
+ public class Athlete implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     public String athletename;
     public String password;
     public String email;
-    @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> authorities ;
     public String phone;
     public Float weight;
     public Float height;
+    @OneToMany()
+    public List<Roles> roles ;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
 
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
+   @Override
+   public Collection<? extends GrantedAuthority> getAuthorities() {
+       return roles.stream()
+               .map(role -> (GrantedAuthority) role) // Assuming Roles implements GrantedAuthority
+               .collect(Collectors.toList());
+   }
+
+   @Override
+   public String getUsername() {
+      return this.email;
+   }
 }
