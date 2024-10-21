@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class login {
-
+    @Autowired
     public AuthenticationManager authenticationManager;
 
     @Autowired
@@ -20,6 +21,8 @@ public class login {
     @Autowired
     public AthleteService  athleteService;
 
+
+    @PostMapping("/login")
     public String  loginwithJtw(AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
