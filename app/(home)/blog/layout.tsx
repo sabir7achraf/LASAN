@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import Bgvedio from "@/components/bgvedio";
+import Bgvedio from "@/components/myComponent/bgvedio";
 export default function BlogLayout({
   children,
 }: {

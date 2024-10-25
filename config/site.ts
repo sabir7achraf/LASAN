@@ -24,6 +24,10 @@ export const siteConfig = {
       label: "About",
       href: "/about",
     },
+    {
+      label: "login",
+      href: "/login",
+    },
   ],
   navMenuItems: [
     {
@@ -58,6 +62,11 @@ export const siteConfig = {
       label: "Logout",
       href: "/logout",
     },
+    {
+      label: "Login",
+      href: "/login",
+    },
+
   ],
   links: {
     github: "https://github.com/nextui-org/nextui",

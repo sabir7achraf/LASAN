@@ -22,6 +22,7 @@ import {
   GithubIcon,
   DiscordIcon,
   HeartFilledIcon,
+  DumbbellIcon,
   SearchIcon,
   Logo,
 } from "@/components/icons";
@@ -94,14 +95,13 @@ export const Navbar = () => {
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button
-            isExternal
             as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
+            className="flex items-center text-sm font-normal text-warning  bg-default-100"
+            href="/login"
+            startContent={<DumbbellIcon className="text-warning mr-2" />}
             variant="flat"
           >
-            Sponsor
+            Workout Now
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -111,7 +111,7 @@ export const Navbar = () => {
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
-        <NavbarMenuToggle />
+        <NavbarMenuToggle/>
       </NavbarContent>
 
       <NavbarMenu>

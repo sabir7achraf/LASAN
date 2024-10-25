@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
+import DataFitching from "@/components/testing/datafetchin";
 
 export default function DocsPage() {
   return (
     <div>
-      <h1 className={title()}>Docs</h1>
+      <DataFitching/>
     </div>
   );
 }
