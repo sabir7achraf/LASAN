@@ -13,6 +13,7 @@ import javax.management.relation.Role;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Entity
@@ -28,19 +29,21 @@ import java.util.stream.Collectors;
     public String phone;
     public Float weight;
     public Float height;
-    @OneToMany()
-    public List<Roles> roles ;
 
 
-   @Override
-   public Collection<? extends GrantedAuthority> getAuthorities() {
-       return roles.stream()
-               .map(role -> (GrantedAuthority) role) // Assuming Roles implements GrantedAuthority
-               .collect(Collectors.toList());
-   }
+    @ManyToMany(fetch = FetchType.EAGER)
+    public List<Roles> roles;
 
-   @Override
-   public String getUsername() {
-      return this.email;
-   }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
 }
+
+

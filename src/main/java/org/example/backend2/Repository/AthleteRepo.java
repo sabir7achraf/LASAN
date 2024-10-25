@@ -7,4 +7,7 @@ import java.util.Optional;
 
 public interface AthleteRepo extends CrudRepository<Athlete, Integer> {
     Optional<Athlete> findByAthletename(String athleteName);
+    Boolean existsByAthletename(String athletename);
+    Optional<Athlete> findByEmail(String email);
+    Boolean existsByEmail(String email);
 }
