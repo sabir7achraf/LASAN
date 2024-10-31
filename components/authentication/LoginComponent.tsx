@@ -1,8 +1,50 @@
+"use client";
 import React from 'react';
 import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 import {Link} from "@nextui-org/link";
+import {useRouter} from "next/navigation";
+import {set} from "@internationalized/date/src/manipulation";
 export default function LoginComponent() {
+
+
+    const router =useRouter();
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+
+
+    const login=async (e:React.FormEvent<HTMLFormElement>)=> {
+        e.preventDefault();
+        const formData = {
+            email,
+            password,
+        }
+        try{
+
+        const response = await fetch("http://localhost:8080/login",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': "application/json",
+                },
+                body: JSON.stringify(formData),
+            }
+        )
+        if (response.ok) {
+            const data = await response.json();
+            const token = await data.token;
+            localStorage.setItem("token", token);
+            router.push("/profile")
+        } else {
+            console.log('Error signing up');
+        }
+    }
+    catch(error){
+        console.error('Error:', error);
+    }
+    }
+
     return (
             <div className="min-h-screen  py-6 flex flex-col justify-center sm:py-12">
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -14,20 +56,23 @@ export default function LoginComponent() {
                             </div>
                             <div className="divide-y divide-gray-200">
 
-                                <form>
+                                <form onSubmit={login}>
                                     <div
-                                        className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                        className="py-8 text-base leading-6 space-y-4 text-white sm:text-lg sm:leading-7">
                                         <div className="relative">
                                             <Input type="athleteName" variant="bordered" label="Email"
-                                                   className="h-10 w-full"/>
+                                                   className="h-10 w-full"
+                                                onChange={(e)=>setEmail(e.target.value)}
+                                            />
                                         </div>
                                         <div className="relative">
                                             <Input type="password" variant="bordered" label="Password"
                                                    className="h-10 w-full"
+                                                   onChange={(e)=>setPassword(e.target.value)}
                                             />
                                         </div>
                                         <div className="relative">
-                                            <Button className="px-4 py-2 w-full" color="warning" variant="shadow">
+                                            <Button className="px-4 py-2 w-full" color="warning" variant="shadow" type="submit">
                                                 Submits
                                             </Button>
                                         </div>

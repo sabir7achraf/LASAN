@@ -10,6 +10,9 @@ export default function DataFitching() {
              setdata(result.data);
         })
         },[])
+    if (!data) {
+        return <p>Athlète non trouvé.</p>; // Message à afficher si l'athlète est null
+    }
 return(
     <div>
         {data}

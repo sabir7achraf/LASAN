@@ -3,24 +3,26 @@ import {useState} from "react";
 import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 import {Link} from "@nextui-org/link";
+import {useRouter} from "next/navigation";
 
 export default function SignupComp() {
+    const router=useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
-    const[athleteName, setAthletename] = useState('');
+    const[athleteName, setAthleteName] = useState('');
 
     const handelsubmit= async ( e: React.FormEvent<HTMLFormElement> )=>{
         e.preventDefault();
         const formData = {
-            athleteName,
             email,
             password,
+            athleteName,
         };
+
+
         try {
-
-
-            const response = await fetch('http://localhost:8080/signUp/',
+            const response = await fetch('http://localhost:8080/signUp',
                 {
                     method: 'POST',
                     headers: {
@@ -33,9 +35,9 @@ export default function SignupComp() {
             if (response.ok) {
                 const data = await response.json();
                 const token = data.token;
-                localStorage.setItem('token', token); // Stocker le JWT dans le localStorage (ou cookie)
+                localStorage.setItem('token', token);
                 console.log('User signed up successfully. Token:', token);
-            } else {
+                router.push("/profile")            } else {
                 console.log('Error signing up');
             }
         }
@@ -56,23 +58,25 @@ return (
                         <h1 className="text-2xl font-semibold ">Sign up</h1>
                     </div>
                     <div className="divide-y divide-gray-200">
-
                         <form onSubmit={handelsubmit}>
                             <div
-                                className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                className="py-8 text-base leading-6 space-y-4 text-white sm:text-lg sm:leading-7">
                                 <div className="relative">
                                     <Input type="athleteName" variant="bordered" label="Athlete Name"
-                                           className="h-10 w-full"/>
+                                           className="h-10 w-full"
+                                           onChange={(e) => setAthleteName(e.target.value)} />
                                 </div>
                                 <div className="relative">
                                     <Input type="Email" variant="bordered" label="Email"
                                            className="h-10 w-full"
-                                    />
+                                           onChange={(e) => setEmail(e.target.value)} />
+
                                 </div>
                                 <div className="relative">
                                     <Input type="password" variant="bordered" label="password"
                                            className="h-10 w-full"
-                                    />
+                                           onChange={(e) => setPassword(e.target.value)} />
+
                                 </div>
                                 <div className="relative">
                                     <Button className="px-4 py-2 w-full" color="warning" variant="shadow" type="submit">
