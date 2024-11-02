@@ -10,4 +10,5 @@ public interface AthleteRepo extends CrudRepository<Athlete, Integer> {
     Boolean existsByAthletename(String athletename);
     Optional<Athlete> findByEmail(String email);
     Boolean existsByEmail(String email);
+
 }
