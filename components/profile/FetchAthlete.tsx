@@ -16,7 +16,8 @@ export async function fetchAthlete(): Promise<Athlete | null> {
         } else {
             throw new Error("Erreur lors de la récupération des données utilisateur");
         }
-    } catch (error) {
+
+    }catch (error) {
         console.error('Erreur:', error);
         return null;
     }

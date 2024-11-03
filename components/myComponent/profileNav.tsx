@@ -5,26 +5,26 @@ import {warning} from "framer-motion";
 export default function ProfileNav (){
     return(
         <div>
-            <div className=" relative h-48 z-10">
-                <Navbar className="  text-white bg-[url('/bg2.jpg')]  h-full items-start">
+            <div className=" relative h-52 z-10">
+                <Navbar className="  text-white bg-[url('/bg2.jpg')]  h-full items-start font-mono text-2xl">
                     <NavbarBrand>
                         <Button className="font-bold text-inherit " variant={"light"} color={"warning"}>fitness
                             app</Button>
                     </NavbarBrand>
 
-                    <NavbarContent className="hidden sm:flex gap-4 " justify="center">
+                    <NavbarContent className="hidden sm:flex gap-10 " justify="center">
                         <NavbarItem>
-                            <Link href="#" className="text-white">
+                            <Link href="#" className="text-gray-200 hover:text-warning text-xl">
                                 Features
                             </Link>
                         </NavbarItem>
                         <NavbarItem isActive>
-                            <Link href="#" aria-current="page" className="text-white">
+                            <Link href="#" aria-current="page" className="text-gray-200 text-xl hover:text-warning">
                                 Customers
                             </Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="#" className="text-white">
+                            <Link href="#" className="text-gray-200 text-xl hover:text-warning">
                                 Integrations
                             </Link>
                         </NavbarItem>
