@@ -31,8 +31,8 @@ const AnimatedLines = () => {
         <svg
             width="100%"
             height="100%"
-            viewBox="200 200 1800 400"
-            style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}
+            viewBox="0 0 1800 400"
+            style={{ position: "absolute", top: 0, left: 1, zIndex: 0 }}
         >
             {/* Première ligne */}
             <path
@@ -46,9 +46,9 @@ const AnimatedLines = () => {
             {/* Deuxième ligne */}
             <path
                 ref={line2Ref}
-                d="M0,200 Q400,450 800,200 T1200,400"
+                d="M0,200 Q400,450 800,400 T1800,700"
                 stroke="#f0a500"
-                strokeWidth="2"
+                strokeWidth="3"
                 fill="none"
                 opacity="0.15"
             />

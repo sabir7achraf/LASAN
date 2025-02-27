@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { useRouter } from "next/navigation";
-import AnimatedDumbells from "../annimation/dumbbelBackground"; // Importez le composant
+import AnimatedDumbells from "../annimation/dumbbelBackground";
 import AnimatedLines from "../annimation/ligne";
 
 export default function SignupComp() {
@@ -47,7 +47,7 @@ export default function SignupComp() {
 
     return (
         <div className="min-h-screen bg-black py-6 flex flex-col justify-center sm:py-12">
-            <AnimatedDumbells /> {/* Ajoutez les haltères animés ici */}
+            <AnimatedDumbells />
             <AnimatedLines/>
 
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">

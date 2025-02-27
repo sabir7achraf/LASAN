@@ -5,6 +5,8 @@ import {Button} from "@nextui-org/button";
 import {Link} from "@nextui-org/link";
 import {useRouter} from "next/navigation";
 import {set} from "@internationalized/date/src/manipulation";
+import AnimatedDumbells from "@/components/annimation/dumbbelBackground";
+import AnimatedLines from "@/components/annimation/ligne";
 export default function LoginComponent() {
 
 
@@ -47,6 +49,8 @@ export default function LoginComponent() {
 
     return (
             <div className="min-h-screen  py-6 flex flex-col justify-center sm:py-12">
+                <AnimatedDumbells />
+                <AnimatedLines/>
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-r from-warning-500 to-warning-200 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
                     <div className="relative px-4 py-10 bg-neutral-800 shadow-lg sm:rounded-3xl sm:p-20">
